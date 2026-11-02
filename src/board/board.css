@@ -1,0 +1,23 @@
+/* Board chrome from Tide Board.dc.html */
+.board {
+  min-height: 100vh;
+  padding: 48px;
+  background: #f5f4ef;
+  color: #1f1e1d;
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  width: max-content;
+  min-width: 100%;
+}
+.board-section { display: flex; flex-direction: column; gap: 20px; }
+.board-h1 { margin: 0; font-size: 15px; font-weight: 500; }
+.board-h2 { margin: 0; font-size: 13px; font-weight: 500; color: #6b6a68; }
+.board-list { display: flex; gap: 48px; }
+.board-list--phone { flex-wrap: wrap; max-width: calc(390px * 3 + 48px * 2); }
+.board-list--desktop { flex-direction: column; }
+.board-item { display: flex; flex-direction: column; gap: 12px; }
+.board-frame { overflow: hidden; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
+.board-frame--phone { width: 390px; height: 844px; border-radius: 32px; }
+.board-frame--desktop { width: 1440px; height: 900px; }
