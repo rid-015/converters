@@ -1,0 +1,134 @@
+/* Tide — values match the design handoff exactly (see README → Design tokens). */
+:root {
+  --accent: #e1ecc4;
+  --accent-edge: #c9d6a6;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6e6e6e;
+  --track: #ecece8;
+  --chip-border: #e3e3e0;
+  --error: #9f1d1d;
+  --error-bg: #fdecec;
+  --error-bar: #c4321c;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+.tide {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.tide--framed { min-height: 100%; height: 100%; }
+.tide button { font-family: inherit; cursor: pointer; }
+
+/* Header */
+.tide-header { height: 56px; padding: 0 20px; display: flex; align-items: center; flex-shrink: 0; }
+.tide-logo { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+.tide-dot { display: block; width: 8px; height: 8px; border-radius: 8px; background: var(--accent); border: 1px solid var(--accent-edge); }
+.tide-back {
+  min-height: 44px; margin-left: -8px; padding: 0 8px; border: 0; background: transparent;
+  color: var(--muted); font-size: 14px; display: flex; align-items: center; gap: 4px;
+}
+
+/* Main */
+.tide-main { flex-grow: 1; padding: 0 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.tide-col { width: 100%; max-width: 400px; display: flex; flex-direction: column; }
+
+/* Shared text */
+.tide-muted { font-size: 13px; color: var(--muted); }
+.tide-filename { flex-grow: 1; min-width: 0; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tide-link {
+  min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--text);
+  font-size: 13px; text-decoration: underline; text-underline-offset: 3px; flex-shrink: 0;
+}
+.tide-text { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--text); font-size: 14px; }
+
+/* Primary button */
+.tide-primary {
+  height: 52px; border: 0; border-radius: 8px; background: var(--accent); color: var(--text);
+  font-size: 15px; font-weight: 500;
+}
+.tide-primary--choose { padding: 0 32px; }
+.tide-primary--wide { margin-top: 22px; width: 100%; }
+
+/* 1. Idle / 8. Wrong file */
+.tide-idle { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.tide-h1 { margin: 0 0 20px; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; }
+.tide-caption { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.tide-wrong {
+  margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: var(--error-bg); color: var(--error);
+  font-size: 13px; display: flex; align-items: center; gap: 8px; text-align: left;
+}
+.tide-wrong svg { flex-shrink: 0; }
+
+/* 2/3/7. Working, Change, Failed */
+.tide-job { display: flex; flex-direction: column; gap: 10px; }
+.tide-namerow { display: flex; align-items: center; gap: 8px; }
+.tide-cancel {
+  width: 44px; height: 44px; margin-right: -14px; border: 0; background: transparent; color: var(--muted);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.tide-track { height: 2px; border-radius: 2px; background: var(--track); overflow: hidden; }
+.tide-fill { height: 2px; background: var(--text); }
+.tide-fill--failed { background: var(--error-bar); }
+.tide-outrow { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tide-error { font-size: 13px; color: var(--error); display: flex; align-items: center; gap: 8px; }
+.tide-error svg { flex-shrink: 0; }
+.tide-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.tide-chip {
+  min-height: 44px; padding: 0 18px; border-radius: 8px; border: 1px solid var(--chip-border);
+  background: #ffffff; color: var(--text); font-size: 13px;
+}
+.tide-chip[aria-pressed='true'] { background: var(--accent); border-color: var(--text); }
+
+/* 4. Done */
+.tide-done { display: flex; flex-direction: column; gap: 6px; }
+.tide-outname { font-size: 14px; overflow-wrap: anywhere; }
+.tide-secondary { display: flex; justify-content: center; gap: 28px; }
+
+/* 5/6. Several files */
+.tide-multi { display: flex; flex-direction: column; }
+.tide-row { padding: 12px 0; display: flex; flex-direction: column; gap: 10px; }
+.tide-rowhead { display: flex; justify-content: space-between; gap: 12px; }
+.tide-status { flex-shrink: 0; font-size: 13px; color: var(--muted); }
+.tide-status--failed { color: var(--error); }
+.tide-multidone { display: flex; flex-direction: column; }
+.tide-total { margin-top: 4px; }
+
+/* Tool grid */
+.tide-nav { width: 100%; display: flex; }
+.tide-group { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.tide-h2 { margin: 0; font-size: 12px; font-weight: 400; color: var(--muted); }
+.tide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tide-tool {
+  height: 48px; padding: 0 14px; border: 1px solid var(--track); border-radius: 6px; background: #ffffff;
+  color: var(--text); font-size: 13px; display: flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.tide-tool svg { flex-shrink: 0; }
+
+.tide-nav--phone { padding: 0 16px 24px; flex-direction: column; gap: 8px; }
+.tide-nav--phone .tide-group--audio { margin-top: 8px; }
+
+/* Desktop: grid lives inside <main>, directly under the hero (updated design). */
+/* padding-bottom lifts the centred hero + grid block slightly above centre, as in the design. */
+.tide-nav--desktop { max-width: 1176px; margin-top: 44px; padding: 0 4px 136px; flex-wrap: wrap; gap: 24px; }
+.tide-nav--desktop .tide-group { gap: 10px; }
+.tide-nav--desktop .tide-grid { gap: 12px; }
+.tide-nav--desktop .tide-group--video { flex: 2 1 480px; }
+.tide-nav--desktop .tide-group--video .tide-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tide-nav--desktop .tide-group--audio { flex: 1 1 240px; }
+.tide-nav--desktop .tide-h2 { font-size: 13px; }
+.tide-nav--desktop .tide-tool {
+  height: 72px; padding: 0 16px; border-radius: 8px; font-size: 15px; gap: 12px;
+  justify-content: center; white-space: nowrap;
+}
+.tide-nav--desktop .tide-tool svg { width: 20px; height: 20px; }
